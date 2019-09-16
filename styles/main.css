@@ -1,0 +1,576 @@
+
+
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lexend+Peta&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lexend+Exa&display=swap');
+
+
+* {
+  /*color: #7F9C85;*/
+
+  color: var(--body-text-color);
+  background: var(--main-bg-color);
+  /* font-family: 'Liberation Serif', 'Noto Serif', 'Times New Roman'; */
+  /* font-family: "Source Sans"; */
+  font-family: 'Roboto', 'Open Sans', sans-serif, 'Times New Roman';
+  /* font-family: 'Lexend Exa', 'Open Sans', sans-serif, 'Times New Roman'; */
+}
+
+.math {
+  /* font-size: 0.8em; */
+  /* color: #667E6E; */
+  /* font-family: 'Linux Libertine', 'Times New Roman'; */
+}
+
+/* Layout */
+body {
+  /* line-height: 23px; */
+  font-size: 15px;
+  /* word-wrap: normal; */
+  display: grid;
+  grid-template-areas:
+    "header"
+    "toc"
+    "contenido"
+    "footer";
+  /* grid-template-columns: 1fr; */
+  /* width: 100vw; */
+}
+
+header {
+  grid-area: header;
+}
+
+nav#TOC {
+  grid-area: toc;
+  /* display: grid; */
+}
+
+article {
+  grid-area: contenido;
+  /* La clave del problema que me llevó mucho tiempo está aquí */
+  overflow-x: scroll;
+  scrollbar-width: none;
+}
+
+footer {
+  grid-area: footer;
+}
+/* / Layout */
+
+
+
+/* section.footnotes { */
+/*   font-family: 'Linux Biolinum O'; */
+/* } */
+
+h1, h2, h3, h4, h5, h6,
+.header-section-number {
+  /* font-family: "Bitstream Vera Serif Bold", sans; */
+  /* font-family: 'Linux Biolinum O'; */
+  font-weight: bold;
+}
+
+h1.title {
+  padding-top: 0px;
+}
+
+
+
+body a {
+  text-decoration: none;
+  color: var(--link-color);
+}
+
+strong {
+  font-weight: bold;
+}
+
+
+h1, h2, h3, h4, h5, h6,
+.header-section-number,
+section p {
+  hyphens: auto;
+  hyphenate-limit-chars: 6 3 3;
+  hyphenate-limit-lines: 2;
+  hyphenate-limit-last: always;
+  hyphenate-limit-zone: 8%;
+}
+
+/* Quizás lo puedo quitar */
+section p a {
+  word-wrap: break-word;
+}
+
+/* a[href^='#']::after, */
+/* a[href^='https://']::after, */
+/* a[href^='http://']::after, */
+/* a[href^='www.']::after { */
+/*     content: "🔗"; */
+/*     margin-left: 0.3em; */
+/* } */
+
+caption {
+  caption-side: bottom;
+  text-align: left;
+}
+
+blockquote {
+  border-left: 3px solid #eee;
+  margin-left: 20px;
+  padding-left: 20px;
+}
+
+::selection {
+  background-color: var(--mouse-selection-color);
+  /* background-color: #edf2f9; */
+}
+
+kbd {
+  -moz-border-radius: 3px;
+  -moz-box-shadow: 0 1px 0 rgba(0,0,0,0.2),0 0 0 2px var(--kbd-shadow-color) inset;
+  -webkit-border-radius: 3px;
+  -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.2),0 0 0 2px var(--kbd-shadow-color) inset;
+  background-color: var(--kbd-bg-color);
+  border: 1px solid var(--kbd-border-color);
+  border-radius: 3px;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.2),0 0 0 2px var(--kbd-shadow-color) inset;
+  color: var(--kbd-color);
+  display: inline-block;
+  font-family: 'Roboto', 'Open Sans', sans-serif;
+  /* font-size: 11px; */
+  line-height: 1.4;
+  margin: 0 .1em;
+  padding: .1em .6em;
+  text-shadow: 0 1px 0 var(--kbd-shadow-color);
+  font-size: 0.7em;
+}
+
+
+/* Tabla de contenidos
+---------------------------------------------------------------------------- */
+nav#TOC {
+  border: 1px solid var(--toc-border-color);
+  border-radius: 7px;
+  margin: 0px;
+  width: 100%;
+}
+
+nav#TOC,
+nav#TOC * {
+  background-color: --var(--toc-bg-color);
+}
+
+nav#TOC ul {
+  list-style: none;
+  font-size: 14px;
+  line-height: 30px;
+  padding-left: 0.9em;
+}
+
+nav#TOC ul:first-child {
+  padding-left: 0.2em;
+}
+
+nav#TOC ul li span.toc-section-number {
+  font-family: 'Roboto', 'Open Sans', 'Arial', sans-serif;
+  padding-right: 0.3em;
+}
+
+nav#TOC ul li a {
+  /* word-wrap: normal; */
+  font-family: 'Roboto', 'Open Sans', sans-serif;
+  display: block;
+  color: var(--toc-fg-color);
+  width: 100%;
+}
+
+nav#TOC ul li a:hover {
+  color: var(--toc-hover-color);
+  background-color: var(--toc-hover-bg-color);
+}
+
+
+
+/* Código
+---------------------------------------------------------------------------- */
+code {
+  font-family: 'Source Code Pro', mono, 'Courier', 'Menlo';
+  font-size: 0.97em;
+  padding: 0.05em;
+  background-color: var(--code-bg-color);
+  border-radius: 2px;
+}
+
+code * {
+  font-family: 'Source Code Pro', mono, 'Courier', 'Menlo';
+}
+
+/* section { */
+/*   /1* display: grid; *1/ */
+/*   width: 100%; */
+/* } */
+
+/* Código separado */
+section pre {
+  overflow-x: scroll;
+  border-radius: 7px;
+  background-color: var(--code-bg-color);
+  padding: 0.2em;
+  scrollbar-width: thin;
+}
+
+section pre code {
+  white-space: pre;
+  /* Sirve tanto block como grid, pero el whitespace pre lo fastidia, pues hace
+   * wrapping */
+  display: grid;
+  /* width: 100%; */
+  background-color: var(--code-bg-color);
+}
+
+code.sourceCode co {
+    font-style: italic;
+}
+
+
+
+/* Tablas
+---------------------------------------------------------------------------- */
+table {
+    width: 100%;
+    margin-top: 1em;
+    margin-bottom: 2em;
+    border-radius: 5px;
+    x-overflow: scroll;
+    /*background: #EDFAEB;*/
+}
+
+table caption {
+    font-family: 'Roboto', 'Open Sans', sans-serif;
+    font-size: 0.9em;
+}
+
+table th {
+    border-bottom: 3px solid var(--table-border-bottom-color);
+    /* background-color: #E2F1E0; */
+    font-family: 'Roboto', 'Open Sans',  sans-serif;
+    padding: 1ex;
+}
+
+table tbody tr.odd td,
+table tbody tr.odd td a,
+table tbody tr.odd td code {
+    /* padding: 0;
+    margin: 0; */
+    background-color: var(--table-odd-row-color);
+}
+
+table tbody tr.even td,
+table tbody tr.even td a,
+table tbody tr.even td code {
+    /* padding: 0;
+    margin: 0; */
+    background-color: var(--table-even-row-color);
+}
+
+table td {
+    margin: 0;
+    padding: 3px 5px;
+}
+
+dl dt {
+    font-weight: bold;
+}
+
+
+
+p span.added {
+    color: green;
+    background-color: var(--span-added-color);
+}
+
+p span.removed {
+    color: red;
+    background-color: var(--span-removed-color);
+}
+
+#title-page {
+    padding: 100px 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Figuras
+---------------------------------------------------------------------------- */
+/*figure {
+    display: grid;
+    grid-template-columns: 350px;
+    /*margin: 0 auto;*/
+    /*text-align: center;*/
+/*}*/
+
+/*.figure img {
+    /*margin: 0 auto;*/
+    /*width: 100%;*/
+/*}*/
+
+figcaption {
+    text-align: center;
+    font-style: italic;
+}
+
+/*figure .plot {
+    /*margin: 0 auto;*/
+    /*width: 350px;*/
+    /*max-width: 350px;*/
+/*}*/
+
+div#plots {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-gap: 20px;
+}
+
+
+
+
+
+
+
+a.footnoteRef sup{
+  font-size: 0.8em;
+  font-style: italic;
+  color: var(--foot-ref-sup-color);
+}
+
+.caption {
+  font-family: 'Roboto', 'Open Sans', sans-serif;
+  font-size: 0.9em;
+}
+
+
+
+/* Primera página
+---------------------------------------------------------------------------- */
+header {
+  display: grid;
+  grid-template-areas:
+    "title title"
+    "author date";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+header * {
+  font-family: 'Roboto', 'Open Sans',  sans-serif;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+}
+
+header h1.title {
+  grid-area: title;
+  font-size: 1.55em;
+  margin-bottom: 0;
+}
+
+header p.author {
+  grid-area: author;
+  font-size: 0.85em;
+  display: flex;
+  margin-top: 5px;
+}
+
+header p.date {
+  grid-area: date;
+  font-size: 0.75em;
+  display: flex;
+  margin-top: 5px;
+}
+
+
+
+/* Entornos
+---------------------------------------------------------------------------- */
+
+div.abstract {
+  padding: 3em;
+}
+
+div.abstract p,
+div.abstract p em {
+  font-family: 'Roboto', 'Open Sans', sans-serif;
+}
+
+
+
+div.digresion,
+div.theorem {
+  /*background-color: #748601;
+  border-width: 5px;
+  border-radius: 10px;
+  border-color: #71a651;*/
+  /*display: block;*/
+  /*border-top: 0.1em;*/
+  padding: 0.8em;
+  border-radius: 0.2em;
+  /*background-color: #303030;*/
+  /*color: #748601;*/
+  border: 2px solid var(--env-theorem-color);
+}
+
+
+
+
+
+/* Headings
+---------------------------------------------------------------------------- */
+
+h1 {
+  font-size: 1.35em;
+  padding-top: 1em;
+}
+
+h2 {
+    padding-top: 24px;
+    font-size: 1.22rem;
+}
+
+h3 {
+    padding-top: 18px;
+    font-size: 1.12rem;
+}
+
+h4 {
+    padding-top: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+/*dl {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+}*/
+
+/*dt:before {
+  content: "";
+  display: block;
+}*/
+
+/*dt, dd {
+    display: inline-flex;
+    float: left;
+}*/
+
+/*dd:after {
+    clear: both;
+}*/
+
+
+
+
+/* Containers */
+/* ------------------------------------------------- */
+div.deffinition,
+div.deffinition * {
+  background-color: red;
+  /* word-wrap: break-word; */
+  /* text-align: left; */
+}
+
+div.deffinition {
+  padding: 0.4em;
+}
+
+
+
+
+
+/* Versión para desktop. El diseño es mobile first. */
+@media (min-width: 700px) {
+  body {
+    height: calc(100vh - 16px);
+    grid-template-areas:
+      "header header"
+      "toc contenido"
+      "footer footer";
+    grid-template-columns: minmax(300px, 2fr) 5fr;
+    grid-template-rows: 14vh calc(84.5vh - 16px) 1.5vh;
+    /* Le resto los 8 de márgenes top y bottom */
+  }
+
+  header {
+    grid-template-areas:
+      "title title title title"
+      ". author date .";
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  article {
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    padding: 0 1em;
+  }
+
+  /* /1* Barras de navegación *1/ */
+  nav#TOC::-webkit-scrollbar,
+  article::-webkit-scrollbar {
+    width: 6px;
+    height: 2px;
+  }
+
+  nav#TOC::-webkit-scrollbar-track,
+  article::-webkit-scrollbar-track {
+    background-color: var(--scrollbar-track-color);
+  }
+
+  nav#TOC::-webkit-scrollbar-thumb,
+  article::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb-color);
+  }
+
+  nav#TOC {
+    /* scrollbar-color: #A5BEAD; */
+    /* height: 100vh; */
+    scrollbar-width: thin;
+    overflow-y: scroll;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-ES" xml:lang="es-ES">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Carlos E. Tafur Egido" />
+  <meta name="dcterms.date" content="22/05/2019" />
+  <meta name="keywords" content="diseño, informática, tipografía, matemáticas, física" />
+  <title>Documentación de LaTeX</title>
+  <style>
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="./styles/color-vars-light.css" />
+  <link rel="stylesheet" href="./styles/main.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Documentación de LaTeX</h1>
+<p class="author">Carlos E. Tafur Egido</p>
+<p class="date">22/05/2019</p>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#introducción">Introducción</a></li>
+<li><a href="#libros-y-manuales">Libros y manuales</a></li>
+<li><a href="#paquetes">Paquetes</a><ul>
+<li><a href="#paquetes-casi-imprescindibles">Paquetes casi imprescindibles</a><ul>
+<li><a href="#array"><code>array</code></a></li>
+<li><a href="#varioref"><code>varioref</code></a></li>
+<li><a href="#lmodern"><code>lmodern</code></a></li>
+<li><a href="#amsmath"><code>amsmath</code></a></li>
+<li><a href="#xcolor"><code>xcolor</code></a></li>
+<li><a href="#babel"><code>babel</code></a></li>
+<li><a href="#minted"><code>minted</code></a></li>
+<li><a href="#listings"><code>listings</code></a></li>
+<li><a href="#fancyvrb"><code>fancyvrb</code></a></li>
+<li><a href="#siunitx"><code>siunitx</code></a></li>
+<li><a href="#titlesec"><code>titlesec</code></a></li>
+<li><a href="#titling"><code>titling</code></a></li>
+<li><a href="#enumitem"><code>enumitem</code></a></li>
+<li><a href="#tcolorbox"><code>tcolorbox</code></a></li>
+<li><a href="#biblatex"><code>biblatex</code></a></li>
+</ul></li>
+<li><a href="#paquetes-importantes">Paquetes importantes</a></li>
+<li><a href="#paquetes-que-me-gusta-tener">Paquetes que me gusta tener</a><ul>
+<li><a href="#ifthen"><code>ifthen</code></a></li>
+<li><a href="#caption"><code>caption</code></a></li>
+<li><a href="#rotating"><code>rotating</code></a></li>
+<li><a href="#pgftikz">PGF/TikZ</a></li>
+<li><a href="#pgfplots"><code>pgfplots</code></a></li>
+<li><a href="#circuitikz"><code>circuitikz</code></a></li>
+<li><a href="#chemfig"><code>chemfig</code></a></li>
+<li><a href="#flowchart"><code>flowchart</code></a></li>
+<li><a href="#tkz-graph"><code>tkz-graph</code></a></li>
+<li><a href="#nicematrix"><code>nicematrix</code></a></li>
+<li><a href="#lwarp"><code>lwarp</code></a></li>
+<li><a href="#mathastext"><code>mathastext</code></a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav><article>
+<section id="introducción" class="level1">
+<h1>Introducción</h1>
+<p>La mejor forma de crear documentación técnica es mediante TeX o alguno de sus derivados, como <a href="https://www.latex-project.org">LaTeX</a> o <a href="https://wiki.contextgarden.net/Main_Page">ConTeXt</a>. El problema es que esto tiene también un inconveniente nada despreciable: que es un poco incordio y le llevará más tiempo que por otros medios como puede ser con algún LML como Markdown, por ejemplo.</p>
+<p>Por tanto, TeX y sus derivados, como LaTeX y ConTeXt (que son en realidad conjuntos de macros de TeX) se emplean principalmente para hacer libros de ciencia y tecnología. También, para los artículos académicos (<em>papers</em>) en las principales publicaciones académicas en ciencia y tecnología.</p>
+<p>En cuanto a su uso por los académicos en el ámbito científico, hay que especificar que son solo una parte quienes usan TeX y sus derivados. Por ejemplo, quienes se dedican a la medicina, no suelen usarlo, sino que lo que suelen emplear son procesadores de texto; principalmente, Microsoft Word.</p>
+<p>Como es posible que sepa, la versión actual de LaTeX (la versión 2e, que comúnmente llaman LaTeX2e) es bastante antigua. Debido a esto, muchas de las cosas se hacen mediante paquetes<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, que podrá encontrar en el Comprehensive TeX Archive Network (<a href="https://ctan.org">CTAN</a>). El problema es que terminará haciéndose su lenguaje <em>ad-hoc</em>, lo cual personalmente no me gusta. Piense que, además de tener que estar al tanto de los últimos paquetes, también tiene el inconveniente de que su editor de textos puede que no entienda la sintaxis de algunos paquetes. Debido a esto, estoy tratando de volver un poco al minimalismo en LaTeX. Si se fija, hay paquetes que son simples y muy útiles, como, por ejemplo, los de la AMS. Están bien pensados, como pasa con Vim, en el que estoy tratando de hacerme también algo minimalista.</p>
+<p>Independientemente de esto, el grupo de expertos que mantienen el <a href="https://www.latex-project.org">proyecto LaTeX</a> (sin contar con los paquetes) está tratando de sacar adelante la siguiente versión de TeX, llamada <a href="https://www.latex-project.org/latex3/">LaTeX3</a>.</p>
+<p>Para aprender LaTeX, lo mejor es comenzar por aprender la versión 2e (LaTeX2e). Para esto, el manual que se suele recomendar es <a href="https://en.wikibooks.org/wiki/LaTeX">LaTeX Wikibook</a> y, como referencia, por ejemplo, <a href="https://latexref.xyz/">LaTeXref</a>.</p>
+<p>Se ha realizado la instalación mediante la distribución TeX Live, puede encontrar en su máquina la documentación de los paquetes que tenga instalados. Se encuentran bajo el directorio <em>/usr/local/texlive/2019/texmf-dist/doc</em>. O, si lo prefiere, los puede buscar en la web del Comprehensive TeX Archive Network (CTAN).</p>
+<p><a href="https://tex.stackexchange.com/a/513/102056">Al parecer</a>, el marcado <code>\( ... \)</code> es preferible a usar los signos de dólar (<code>$ ... $</code>), pues el primero es la notación en LaTeX, mientras que el segundo es la de TeX. Por tanto, esto hará que los errores de compilación, si usa el marcado de LaTeX, sean más entendibles.</p>
+</section>
+<section id="libros-y-manuales" class="level1">
+<h1>Libros y manuales</h1>
+<p>Actualmente, un manual gratuito que me parece bastante bueno es <a href="https://github.com/oetiker/lshort"><em>The No Short Introduction to LaTeX2e</em></a>, de Tobias Oetiker. Para conocer TeX y LaTeX a un nivel algo más bajo, puede leer <span class="citation" data-cites="latex-kopka">Kopka &amp; Daly (<a href="#ref-latex-kopka" role="doc-biblioref">2003</a>)</span>, aunque quizás puede valerle con el primero y uno de TeX TKTKTKTKTK.</p>
+<p>Un documento muy interesante es el que puede encontrar en CTAN donde explican la <a href="https://ctan.org/pkg/encguide">codificación de fuentes tipográficas en LaTeX</a>.</p>
+</section>
+<section id="paquetes" class="level1">
+<h1>Paquetes</h1>
+<section id="paquetes-casi-imprescindibles" class="level2">
+<h2>Paquetes casi imprescindibles</h2>
+<section id="array" class="level3 unnumbered">
+<h3><code>array</code></h3>
+<p>El paquete <a href="paq-array"><code>array</code></a> es una ampliación de los entornos <code>array</code> y <code>tabular</code>. Es una evolución de estos comandos de LaTeX2e. Uno de quienes mantienen este paquete es Frank Mittelbach, así que el paquete tiene un muy buen mantenimiento y está actualizando muy bien estos entornos tradicionales de LaTeX.</p>
+</section>
+<section id="varioref" class="level3 unnumbered">
+<h3><code>varioref</code></h3>
+<p>El paquete <a href="http://osl.ugr.es/CTAN/macros/latex/required/tools/varioref.pdf"><code>varioref</code></a> permite hacer referencias no solo a números de sección, sino también incluir el título de las secciones, etc. O quizás también necesite <code>nameref</code>. O quizás <code>varioref</code>ya haga esto, pues actualmente lo mantiene Frank Mittelbach.</p>
+</section>
+<section id="lmodern" class="level3 unnumbered">
+<h3><code>lmodern</code></h3>
+<p>El paquete <a href="https://ctan.org/pkg/lm?lang=en"><code>lmodern</code></a> le permite usar la fuente tipográfica Latin Modern (LM), que es básicamente como la Computer Modern (CM), que es la básica de TeX, es decir, la que creó Donald E. Knuth al crear TeX, pero de tipo outline, es decir, perfilada, con tecnologías como TrueType u OpenType, mientras que CM es rasterizada.</p>
+<p>A veces, deseo usar otras fuentes que me gustan más o que me parecen más modernas, como las Libertine, por ejemplo, pero para la notación matemática viene muy bien la fuente LM. Por ejemplo, me permite escribir la omega mayúscula como una variable, es decir, en itálicas (<span class="math inline">\(\mathit{\Omega}\)</span>); se debería usar así, por ejemplo, para designar a los espacios muestrales: <span class="math inline">\(\mathit{\Omega} = \{s_1, s_2, \ldots , s_n\}\)</span>, pues me gusta seguir la regla de poner en itálicas las variables, aun cuando se trate de letras griegas mayúsculas (hay quien no sigue esta regla). También le permite usarlo en redonda, cuando sea necesario. Por ejemplo, el paquete <a href="#siunitx"><code>siunitx</code></a>, que actualmente me parece imprescindible, lo pone en redonda (<span class="math inline">\(\mathrm{\Omega}\)</span>) para referirme a la unidad de impedancia eléctrica ohmio: <span class="math inline">\(R = 5\, \mathrm{\Omega}\)</span>.</p>
+<p>Para que se pueda usar una fuente de tipo OpenType o TrueType, necesita el paquete <code>fontspec</code> y además compilar el documento mediante los motores (<em>engines</em>) XeTeX o LuaTeX.</p>
+<p>Últimamente, la fuente que me está gustando más es Libertine, que se puede usar con un paquete: <code>libertine</code>, que tiene basatnte variedad de utilidades: fuentes para matemáticas, etc. Para que la simbología matemática sea también de fuente Libertine, deberá usar las fuentes Libertinus también.</p>
+<p>El principal problema que le veo a la tipografía de Computer Modern —así como a Latin Modern, pues son iguales—, es que son fuentes muy finas, del estilo antiguo, y, por tanto, para lectura en pantalla son bastante malas.</p>
+</section>
+<section id="amsmath" class="level3 unnumbered">
+<h3><code>amsmath</code></h3>
+<p>El paquete <a href="http://osl.ugr.es/CTAN/macros/latex/required/amsmath"><code>amsmath</code></a> es un paquete imprescindible si se preocupa por la microtipografía de la notación matemática. Es desarrollado por la American Mathematical Society (AMS) y el LaTeX3 Project.</p>
+</section>
+<section id="xcolor" class="level3 unnumbered">
+<h3><code>xcolor</code></h3>
+<p>El paquete <a href="http://osl.ugr.es/CTAN/macros/latex/contrib/xcolor"><code>xcolor</code></a> permite definir colores (asignándoles identificativos). Los colores que vienen en TeX y sus derivados sin paquetes son muy pocos y no se tiene la funcionalidad de definir nuevos. Últimamente, me estoy volviendo más minimalista y cosas como esta, por ejemplo, no las valoro tanto. Es decir, podría crear un libro perfectamente sin colores, pues, de hecho, los colores rompen el gris del texto —cosa que no tiene importancia en un libro lleno de ecuaciones y otra simbología de ese tipo— y, por tanto, distraen. Puede que baste con la escala de grises.</p>
+<p>Aun así, este paquete está muy bien, pues le permite tener una gestión muy completa de los colores. Por ejemplo, le permite expresarlos en código hexadecimal, como suele ser el caso en el mundo del diseño web.</p>
+</section>
+<section id="babel" class="level3 unnumbered">
+<h3><code>babel</code></h3>
+<p>El paquete <a href="https://ctan.org/pkg/babel"><code>babel</code></a> es imprescindible para que tenga la funcionalidad de crear documentos en idiomas (o dialectos) distintos al inglés de EEUU, o que contengan partes de lenguas distintas al inglés de EEUU. Actualmente, lo mantiene <a href="http://www.texnia.com/">Javier Bezos</a>, uno de los mayores expertos de TeX y sus derivados en todo el mundo (es miembro del grupo de trabajo de LaTeX3), y es una pasada lo bien mantenido que está este paquete; puede comprobarlo simplemente abriendo el PDF de la documentación.</p>
+<p>Leyendo la documentación del paquete Babel, llegué a la conclusión de que la forma que debo usar en mis documentos es la siguiente. Por ejemplo, en español, empleando alguna que otra vez expresiones en inglés y en latín:</p>
+<pre><code>\documentclass[spanish]{book}
+\usepackage[latin,english,main=spanish]{babel}</code></pre>
+<p>Así, los demás paquetes tomarán como idioma de referencia el español (por ejemplo, el paquete <code>varioref</code>) y tendré especificados otros idiomas como secundarios. También, suelo poner el francés y el alemán, si tengo que poner nombre de personas de los países correspondientes.</p>
+<p>Tengo que ponerme algún día a ver qué eso de los <em>shorthands</em> de los que habla la documentación de Babel.</p>
+<p>Por supuesto, también deberá ver las particularidades de <a href="https://ctan.org/pkg/babel-spanish?lang=en">Babel para el español de España</a>.</p>
+<p>Surgió otro paquete, hace poco, llamado <a href="https://ctan.org/pkg/polyglossia?lang=en"><code>polyglossia</code></a>, que pretende hacer lo mismo que <code>babel</code> pero siendo solo compatible con XeLaTeX y LuaLaTeX, liberándose así de gran parte de la complejidad de <code>babel</code>. La cosa es que <code>babel</code> es muy bueno y tiene un mantenimiento muy activo, por lo que creo que seguiré con este, de momento.</p>
+</section>
+<section id="minted" class="level3 unnumbered">
+<h3><code>minted</code></h3>
+<p>El paquete <a href="https://ctan.org/pkg/minted?lang=en"><code>minted</code></a> es un paquete para insertar listados de código. Está bastante bien hecho, pero en realidad es una herramienta externa a TeX; es de Python. Debido a esto, debe usar la opción <code>-shell-escape</code> para el comando de latex (<code>pdflatex</code>, <code>lualatex</code>, etc.). Además, como siempre que incluya alguna herramienta externa a TeX, para poder ejecutarla debe tener el paquete <code>imakeidx</code> en su preámbulo. Que sea una herramienta externa implica también que modificar ciertas cosas sea más complicado que en otros que sí son internos, como, por ejemplo, <code>listings</code> y <code>fancyvrb</code>.</p>
+<p>Puede instalar las librerías <code>pygments</code> con el gestor de paquetes <code>pip</code>:</p>
+<pre><code>$ pip install pygments</code></pre>
+<p>Además, parece que ahora está bastante desatendido.</p>
+</section>
+<section id="listings" class="level3 unnumbered">
+<h3><code>listings</code></h3>
+<p>El paquete <a href="https://www.ctan.org/pkg/listings"><code>listings</code></a> es seguramente el mejor paquete para listados de código, aunque tiene cosas que no me gustan. Estoy tratando de compararlo con <code>fancyvrb</code>, a ver cuál sigue un desarrollo más activo. Tiene algunas cosas que llevan mucho tiempo sin solucionar, como, por ejemplo, que para escapar dentro de un <code>lstinline</code> tienes que usar la opción <code>mathescape</code>, sin embargo, en modo display (<code>lstlisting</code>), se escapa a modo texto con la opción <code>escapeinside</code>. Esto digamos que es un <em>hack</em>; no una solución elegante.</p>
+<p>Otra forma sería considerando como una palabra clave (<em>keyword</em>) la que quiero poner en texto normal. Así, puedo modificarla individualmente.</p>
+</section>
+<section id="fancyvrb" class="level3 unnumbered">
+<h3><code>fancyvrb</code></h3>
+<p>El paquete <a href="https://ctan.org/pkg/fancyvrb?lang=en"><code>fancyvrb</code></a> es un paquete que está muy bien para listado de código. Tiene una carencia: el resaltado de sintaxis, pero está previsto que en un futuro colaboren con los creadores del paquete <code>listings</code> para aprovechar las facilidades de este en ese aspecto. Creo que aún le faltan cosas para igualar a <a href="#listings"><code>listings</code></a> en funcionalidades.</p>
+</section>
+<section id="siunitx" class="level3 unnumbered">
+<h3><code>siunitx</code></h3>
+<p>El paquete <a href="https://ctan.org/pkg/siunitx?lang=en"><code>siunitx</code></a> me parece actualmente un paquete imprescindible, que, además, sigue siendo actualizado. Es para especificar las unidades de modo más semántico.</p>
+</section>
+<section id="titlesec" class="level3 unnumbered">
+<h3><code>titlesec</code></h3>
+<p>El paquete <a href="https://ctan.org/pkg/titlesec?lang=en"><code>titlesec</code></a> es de <a href="http://www.texnia.com/">Javier Bezos</a>. Es un paquete para modificar los títulos (<em>headings</em>; no lo confunda con <em>header</em>) de las secciones.</p>
+</section>
+<section id="titling" class="level3 unnumbered">
+<h3><code>titling</code></h3>
+<p>El paquete <a href="https://ctan.org/pkg/titling?lang=en"><code>titling</code></a> no lo confunda con <a href="#titlesec"><code>titlesec</code></a>. Este es para especificar el layout de la página de título. Quizás sería mejor <a href="https://en.wikibooks.org/wiki/LaTeX/Title_Creation">crearla yo mismo con LaTeX2e a secas</a>.</p>
+</section>
+<section id="enumitem" class="level3 unnumbered">
+<h3><code>enumitem</code></h3>
+<p>El paquete <a href="https://ctan.org/pkg/enumitem?lang=en"><code>enumitem</code></a> también de <a href="http://www.texnia.com/">Javier Bezos</a>, para customizar las listas.</p>
+</section>
+<section id="tcolorbox" class="level3 unnumbered">
+<h3><code>tcolorbox</code></h3>
+<p>El paquete <a href="https://ctan.org/pkg/tcolorbox?lang=en"><code>tcolorbox</code></a> es un paquete muy bueno y muy trabajado para hacer el layout de figuras, tablas, entornos de teoremas, de ejemplos, etc. Se puede usar para muchas cosas. Si no estoy equivocado, está basado en <code>pgf</code>. El paquete <code>tcolorbox</code> es muy bueno, pero supone desviarme mucho de LaTeX. No estoy seguro de si es buena idea que lo use para crear entornos de teoremas, figuras, etc. Últimamente, estoy tratando de no usar más paquetes de los necesarios, y esto mismo se puede hacer sin paquetes, por lo que preferiré no usarlo.</p>
+</section>
+<section id="biblatex" class="level3 unnumbered">
+<h3><code>biblatex</code></h3>
+<p>El paquete <a href="https://ctan.org/pkg/biblatex?lang=en"><code>biblatex</code></a> es el paquete para gestión de bibliografías que es más activo; mucho más que los demás.</p>
+<p>LaTeX2e tiene dos entornos (<em>environment</em>) que son muy importantes: <code>array</code> y <code>tabular</code>. El primero es para disponer texto matemático en formas de tabla o parecidas, le otorga versatilidad en la disposición. El segundo, para texto normal también en tablas o, en general, con disposiciones especiales. De hecho, estos entonrnos son tan especiales que Frank Mittelbach y David Carlisle <a href="paq-array">crearon una nueva implementación</a>.</p>
+<p>El paquete <code>amsmath</code>, que es especial y prácticamente lo usa todo el mundo que usa LaTeX, tiene también varios entornos especiales, como son <code>align</code>, <code>matrix</code>, etc. Estos se basan en <code>array</code> y además tienen la versión con asterisco (<code>*</code>), que, como suele ser habitual, es igual pero sin numeración.</p>
+<p>Para mí, la forma más adecuada de crear una disposición de ecuaciones (o, en general, de expresiones matemáticas) en la que solo algunas tengan etiquetas (es decir, estén numeradas) es con el entorno <code>align</code> (de <code>amsmath</code>) y usar el comando <code>\nonumber</code> en las filas que no quiero que estén numeradas y <code>\label</code> en las que sí.</p>
+<p>Tiene que tener cuidado en que <code>array</code> debe ir en un entorno de <em>displayed math</em>, mientras que <code>align</code> no.</p>
+<p>Hay cosas que no sé hacer con <code>align</code>, como la disposición en 3 columnas. Lo hago con <code>array</code>.</p>
+</section>
+</section>
+<section id="paquetes-importantes" class="level2">
+<h2>Paquetes importantes</h2>
+<p>En cuanto a la notación en matemáticas, encontré el paquete <code>systeme</code>, que facilita muchísimo la escritura de sistemas de ecuaciones lineales. Hace por sí mismo la alineación. En realidad, no me gusta mucho, pues,</p>
+<ol type="1">
+<li>da un error en la compilación,</li>
+<li>la forma de hacerlo con <code>array</code> se puede automarizar.</li>
+</ol>
+<p>También, está el paquete <code>gauss</code>, que tiene una forma rápida de notación para las transformaciones de los sistemas de ecuaciones lineales y de las matrices por el método de Gauss (creo que hay quien lo llama forma escalonada reducida. Creo que <a href="https://math.stackexchange.com/a/879969">aquí</a> explican la diferencia.</p>
+</section>
+<section id="paquetes-que-me-gusta-tener" class="level2">
+<h2>Paquetes que me gusta tener</h2>
+<section id="ifthen" class="level3 unnumbered">
+<h3><code>ifthen</code></h3>
+<p>El paquete <a href="http://osl.ugr.es/CTAN/macros/latex/base/ifthen.pdf"><code>ifthen</code></a> alguna vez he necesitado usar una estructura condicional en el compilado de un documento. Viene muy bien, pues le permite mucha versatilidad a la hora de compilar el documento.</p>
+</section>
+<section id="caption" class="level3 unnumbered">
+<h3><code>caption</code></h3>
+<p>El paquete <a href="http://osl.ugr.es/CTAN/macros/latex/contrib/caption/caption-eng.pdf"><code>caption</code></a> necesario si quiere cambiar la fuente de las captions de las figuras y las tablas. A mí, por ejemplo, me gusta que estén en letra sans-serif y, además, algo más pequeñas que el texto del cuerpo. Lo pongo en el preámbulo:</p>
+<pre><code>\usepackage[font=sf, labelfont={sf}]{caption}</code></pre>
+</section>
+<section id="rotating" class="level3 unnumbered">
+<h3><code>rotating</code></h3>
+<p>El paquete <a href="https://ctan.org/pkg/rotating?lang=en"><code>rotating</code></a> puede que necesite este paquete, si desea rotar una tabla en un documento. Alguna vez lo he necesitado, para algo puntual. Creo que sería bastante complicado de implementar en LaTeX2e sin un paquete específico.</p>
+</section>
+<section id="pgftikz" class="level3 unnumbered">
+<h3>PGF/TikZ</h3>
+<p>El paquete <a href="https://ctan.org/pkg/pgf?lang=en">PGF/TikZ</a> el paquete PGF sería más bien un metapaquete. Según dicen en su web en CTAN, es un paquete de macros para crear gráficos. Viene con una capa de sintaxis, por encima, más sencilla llamada TikZ, de ahí que mucha gente lo llame “PGF/TikZ”. Este paquete está supertrabajado. Solo hay que ver el manual y la de gráficos que puedes hacer con él. Tiene otros paquetes derivados, como, por ejemplo, <a href="#circuitikz"><code>circuitikz</code></a>, para crear esquemas de circuitos eléctricos y electrónicos. Existen <a href="http://www.texample.net/tikz/examples/">otros muchos paquetes basados en PGF/TikZ</a>.</p>
+<p>Hace poco, descubrí que tienen <a href="https://pgf-tikz.github.io/">un tutorial en formato web</a>, que está transformado de LaTeX, imagino que con el paquete <a href="#lwarp"><code>lwarp</code></a>.</p>
+</section>
+<section id="pgfplots" class="level3 unnumbered">
+<h3><code>pgfplots</code></h3>
+<p>El paquete <a href="https://ctan.org/pkg/pgfplots?lang=en"><code>pgfplots</code></a> es, en mi opinión, el mejor paquete para hacer gráficas. Mucha gente usa algún paquete que le permita insertar gráficas hechas en alguna librería de Python, como, por ejemplo, Matplotlib, pero a mí no me ha gustado mucho. Es normal que mucha gente lo haga así, puesto que Python es un lenguaje muy usado para en análisis de datos en ciencia. El paquete <code>pgfplots</code> está basado en [PGF]. Yo lo prefiero porque es una herramienta de TeX; no una externa que tengo que integrar. Además, al estar basado en PGF, la calidad tipográfica que otorga a sus gráficos es excelente.</p>
+<p>Al parecer, según explican en el manual de PFG/TikZ, se pueden hacer gráficas directamente en PGF o TikZ, pero aconsejan que, si no desea complicarse mucho, use algún paquete como <code>pgfplots</code>.</p>
+</section>
+<section id="circuitikz" class="level3 unnumbered">
+<h3><code>circuitikz</code></h3>
+<p>El paquete <a href="https://ctan.org/pkg/circuitikz"><code>circuitikz</code></a> para dibujar esquemas de circuitos eléctricos. Está basado en PFG/TikZ. Lo considero la mejor opción para hacer esquemas de electrónica. Hay libros publicados sobre la materia (electrónica, etc.) y la calidad que tienen en sus gráficos de los esquemas eléctricos es muy mediocre si se la compara con lo que se puede conseguir con este paquete.</p>
+</section>
+<section id="chemfig" class="level3 unnumbered">
+<h3><code>chemfig</code></h3>
+<p>El paquete <a href="https://ctan.org/pkg/chemfig"><code>chemfig</code></a> otro paquete increíblemente bueno para gráficos de temas de ciencia y tecnología: en este caso, de símbolos de moléculas químicas. Solo hay que echar un vistazo al manual para ver que es de una grandísima calidad.</p>
+</section>
+<section id="flowchart" class="level3 unnumbered">
+<h3><code>flowchart</code></h3>
+<p>El paquete <a href="https://ctan.org/pkg/flowchart"><code>flowchart</code></a> paquete basado en PGF/TikZ para el dibujo de diagramas de flujo (<em>flowcharts</em>). Realmente, no me parece tan buena idea el uso de este paquete, pues, <a href="http://www.texample.net/tikz/examples/simple-flow-chart/">con TikZ se puede hacer también un flowchart</a> con mayor calidad.</p>
+</section>
+<section id="tkz-graph" class="level3 unnumbered">
+<h3><code>tkz-graph</code></h3>
+<p>El paquete <a href="https://ctan.org/pkg/tkz-graph"><code>tkz-graph</code></a> para dibujar grafos de la teoría de grafos en matemáticas. También, puede hacerse sin necesidad de usar un paquete específico, sino que <a href="https://tex.stackexchange.com/questions/270543/draw-a-graph-in-latex-with-tikz">podría hacerse directamente con PFG/TikZ</a>.</p>
+</section>
+<section id="nicematrix" class="level3 unnumbered">
+<h3><code>nicematrix</code></h3>
+<p>El paquete <a href="https://ctan.org/pkg/nicematrix"><code>nicematrix</code></a> para tener matrices incompletas más bonitas. En realidad, no es muy necesario. Eso sí, el paquete está muy trabajado y tiene un mantenimiento bastante activo.</p>
+</section>
+<section id="lwarp" class="level3 unnumbered">
+<h3><code>lwarp</code></h3>
+<p>El paquete <a href="https://ctan.org/pkg/lwarp"><code>lwarp</code></a> creo que es ahora mismo el mejor conversor a HTML desde LaTeX, pues es el más moderno y el autor ha puesto muchísimo empeño. Es una pasada. El manual tiene más de 1000 páginas. El problema es que es muy difícil de usar. Los dos únicos documentos que he visto que se han podido transformar bien, con calidad, de LaTeX a HTML, son la <a href="http://bdtechconcepts.com/">documentación oficial de <code>lwarp</code></a> y <a href="https://pgf-tikz.github.io/">el tutorial de PGF y TikZ en versión web</a>.</p>
+</section>
+<section id="mathastext" class="level3 unnumbered">
+<h3><code>mathastext</code></h3>
+<p>El paquete <a href="https://ctan.org/pkg/mathastext?lang=en"><code>mathastext</code></a> es para usar símbolos matemáticos basados en alguna fuente distinta a la típica Computer Modern, que es muy fina… Está muy bien este paquete, además de que está muy bien mantenido. Es algo difícil de usar. Actualmente, lo que hago es usar la fuente Libertine, que también se puede usar sus fuentes de simbología matemática.</p>
+<div id="refs" class="references" role="doc-bibliography">
+<div id="ref-latex-kopka">
+<p>Kopka, Helmut y Patrick W. Daly (2003): <em>Guide to LaTeX</em>,.</p>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>Creo que lo que llaman <em>paquetes</em> en el mundo de TeX son lo que llamamos <em>librerías</em> en la mayoría de los lenguajes de programación.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</article><footer></footer></body>
+</html>

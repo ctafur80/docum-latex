@@ -1,0 +1,26 @@
+:root {
+  --main-bg-color: #f2f3f4;
+  --body-text-color: #2e3440;
+  --link-color: #667e6e;
+  --mouse-selection-color: #e4e4e4;
+  --kbd-bg-color: #f7f7f7;
+  --kbd-color: #333;
+  --kbd-border-color: #ccc;
+  --kbd-shadow-color: #fff;
+  --table-border-bottom-color: #748601;
+  --table-odd-row-color: #e3f5e7;
+  --table-even-row-color: #f1f1f1;
+  --span-added-color: #fff3c5;
+  --span-removed-color: #fff3c5;
+  --scrollbar-track-color: #f7fff9;
+  --scrollbar-thumb-color: #a5bead;
+  --toc-bg-color: #d5d5d5;
+  --toc-fg-color: #222;
+  --toc-hover-color: #748601;
+  --toc-hover-bg-color: #ddd;
+  --foot-ref-sup-color: #667e6e;
+  --env-theorem-color: #a0e8a6;
+  --code-in-heading-color: #a5bead;
+  --code-bg-color: #edf2f9;
+}
+
